@@ -44,7 +44,7 @@ async def update_contact(contact_id: int, body: ContactUpdate, db: Session) -> C
     return contact
 
 
-async def find_contacts(db: Session, name: str = None, lastname: str = None, email: str = None,):
+async def find_contacts(db: Session, name: str = None, lastname: str = None, email: str = None) -> List[Contact]:
     q = None
     if name:
         q = db.query(Contact).filter(Contact.name.ilike(f"%{name}%"))
